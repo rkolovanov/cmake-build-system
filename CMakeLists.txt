@@ -1,12 +1,23 @@
 cmake_minimum_required(VERSION 3.16)
-project(cmake-build-system)
 
-set(MODULES modules/CmakeBuildSystem.cmake
-        DESTINATION ${CMAKE_INSTALL})
+project(cmake-build-system VERSION 0.0.1 DESCRIPTION "CMake Build system for C++ projects")
+
+install(FILES ${SOURCES} DESTINATION ${CMAKE_INSTALL_FULL_DATADIR}/cmake-build-system)
+
+set(CMAKE_BUILD_SYSTEM_DIR ${CMAKE_SOURCE_DIR}/sources)
+set(CPACK_DEBIAN_BUILDREQUIRES "cmake >= 3.16")
+set(CPACK_RPM_BUILDREQUIRES "cmake >= 3.16")
+set(CPACK_DEBIAN_PACKAGE_DEPENDS "cmake (>= 3.16)")
+set(CPACK_RPM_PACKAGE_DEPENDS "cmake (>= 3.16)")
 
 include(GNUInstallDirs)
-include(modules/CmakeBuildSystem.cmake)
+set(CMAKE_BUILD_SYSTEM_INSTALL_PATH "${CMAKE_INSTALL_DATADIR}/${CMAKE_PROJECT_NAME}")
+set(CMAKE_MODULES_PATH "${CMAKE_INSTALL_DATADIR}/cmake/Modules")
 
-install(FILES ${MODULES} DESTINATION ${CMAKE_INSTALL_FULL_DATADIR}/cmake-build-system)
+install(FILES ${CMAKE_BUILD_SYSTEM_DIR}/CMakeBuildSystem.cmake DESTINATION ${CMAKE_BUILD_SYSTEM_INSTALL_PATH})
+install(FILES ${CMAKE_BUILD_SYSTEM_DIR}/Definitions.cmake DESTINATION ${CMAKE_BUILD_SYSTEM_INSTALL_PATH})
+install(FILES ${CMAKE_BUILD_SYSTEM_DIR}/Functions.cmake DESTINATION ${CMAKE_BUILD_SYSTEM_INSTALL_PATH})
+install(FILES ${CMAKE_BUILD_SYSTEM_DIR}/Pack.cmake DESTINATION ${CMAKE_BUILD_SYSTEM_INSTALL_PATH})
+install(FILES ${CMAKE_BUILD_SYSTEM_DIR}/modules/FindCMakeBuildSystem.cmake DESTINATION ${CMAKE_MODULES_PATH})
 
-include(CPack)
+include(${CMAKE_BUILD_SYSTEM_DIR}/CMakeBuildSystem.cmake)
