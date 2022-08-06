@@ -1,0 +1,11 @@
+# cmake-build-system configuration
+
+include(GNUInstallDirs)
+set(CMAKE_BUILD_SYSTEM_DIR "/usr/${CMAKE_INSTALL_DATADIR}/@PROJECT_NAME@")
+
+if(EXISTS "${CMAKE_BUILD_SYSTEM_DIR}/CMakeBuildSystem.cmake")
+  include(${CMAKE_BUILD_SYSTEM_DIR}/CMakeBuildSystem.cmake)
+  message("Found package @PROJECT_NAME@ version @PROJECT_VERSION@")
+else()
+  message("Package @PROJECT_NAME@ not found")
+endif()
