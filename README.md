@@ -1,8 +1,6 @@
 # cmake-build-system
 
-Система сборки CMake для C++ проектов
+Система сборки CMake для C++ проектов.
 
-Планы:
-
-* Заменить `FindCMakeBuildSystem.cmake` на `CMakeBuildSystemConfig`
-* Автоматическое подключение CMake-модулей системы сборки при `find_package(CMakeBuildSystem)` в проекте для сборки
+Для использования системы сборки необходимо после установки пакета подключить ее при
+помощи `find_package(cmake-build-system)` в `CMakeLists.txt` вашего проекта.
