@@ -7,7 +7,6 @@ include(GNUInstallDirs)
 # CMakeBuildSystem modules
 include(${CMAKE_BUILD_SYSTEM_DIR}/Definitions.cmake)
 include(${CMAKE_BUILD_SYSTEM_DIR}/Functions.cmake)
-include(${CMAKE_BUILD_SYSTEM_DIR}/Pack.cmake)
 
 message("-- Using cmake-build-system")
 message("Build type: ${CMAKE_BUILD_TYPE}")
