@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(cmake-build-system VERSION 0.0.1 DESCRIPTION "CMake Build system for C++ projects")
+project(cmake-build-system VERSION 0.0.2 DESCRIPTION "CMake Build system for C++ projects")
 
 install(FILES ${SOURCES} DESTINATION ${CMAKE_INSTALL_FULL_DATADIR}/cmake-build-system)
 
@@ -9,6 +9,7 @@ set(CPACK_DEBIAN_BUILDREQUIRES "cmake >= 3.16")
 set(CPACK_RPM_BUILDREQUIRES "cmake >= 3.16")
 set(CPACK_DEBIAN_PACKAGE_DEPENDS "cmake (>= 3.16)")
 set(CPACK_RPM_PACKAGE_DEPENDS "cmake (>= 3.16)")
+set(CBS_PACKAGE_ARCHITECTURE noarch)
 
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
