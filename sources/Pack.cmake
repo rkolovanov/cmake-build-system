@@ -12,7 +12,7 @@ add_custom_target(pack-deb
 
 # Packing RPM
 add_custom_target(pack-rpm
-                  COMMAND ${CMAKE_CPACK_COMMAND} -G RPM)
+                  COMMAND ${CMAKE_CPACK_COMMAND} -G RPM -C ${CMAKE_BUILD_TYPE})
 
 # Clear packages
 add_custom_target(clear-packages
