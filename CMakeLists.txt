@@ -35,3 +35,4 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
 
 
 include(${CMAKE_BUILD_SYSTEM_DIR}/CMakeBuildSystem.cmake)
+include(${CMAKE_BUILD_SYSTEM_DIR}/Pack.cmake)

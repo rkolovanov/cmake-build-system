@@ -10,6 +10,8 @@ include(${CMAKE_BUILD_SYSTEM_DIR}/Functions.cmake)
 
 message("-- Using cmake-build-system")
 message("   Build type: ${CMAKE_BUILD_TYPE}")
+message("   C++ compiler: ${CMAKE_CXX_COMPILER} ${CMAKE_CXX_COMPILER_VERSION}")
+message("   C++ standard: ${CMAKE_CXX_STANDARD}")
 message("   Platform: ${CBS_SYSTEM} ${CBS_ARCHITECTURE}")
 message("   Package architecture: ${CBS_PACKAGE_ARCHITECTURE}")
 message("   Includes install directory: ${CMAKE_INSTALL_PREFIX}/${CBS_INCLUDE_INSTALL_PATH}")
