@@ -3,6 +3,7 @@ set(CMAKE_INSTALL_PREFIX "/usr")
 
 # Standard modules
 include(GNUInstallDirs)
+include(CMakePackageConfigHelpers)
 
 # CMakeBuildSystem modules
 include(${CMAKE_BUILD_SYSTEM_DIR}/Definitions.cmake)
