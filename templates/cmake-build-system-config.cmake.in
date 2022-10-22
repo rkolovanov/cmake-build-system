@@ -1,0 +1,13 @@
+# cmake-build-system package configuration file
+
+@PACKAGE_INIT@
+
+set(CMAKE_BUILD_SYSTEM_DIR "@PACKAGE_CBS_CMAKE_FILES_PATH@")
+
+if(EXISTS "${CMAKE_BUILD_SYSTEM_DIR}/CMakeBuildSystem.cmake")
+  message("-- Found package @PROJECT_NAME@ version @PROJECT_VERSION@")
+  set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH} ${CMAKE_BUILD_SYSTEM_DIR}")
+  include(${CMAKE_BUILD_SYSTEM_DIR}/CMakeBuildSystem.cmake)
+else()
+  message(FATAL_ERROR "-- Package @PROJECT_NAME@ not found")
+endif()

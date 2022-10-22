@@ -20,16 +20,16 @@ set(CPACK_DEBIAN_PACKAGE_DEPENDS "cmake (>= 3.16)")
 set(CPACK_RPM_PACKAGE_DEPENDS "cmake (>= 3.16)")
 set(CBS_PACKAGE_ARCHITECTURE noarch)
 
-# TODO: use export
-configure_package_config_file(templates/${PROJECT_NAME}Config.cmake.in
-                              ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
-                              INSTALL_DESTINATION ${CBS_CMAKE_CONFIG_FILES_PATH})
-write_basic_package_version_file(${PROJECT_NAME}ConfigVersion.cmake
+configure_package_config_file(templates/${PROJECT_NAME}-config.cmake.in
+                              ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-config.cmake
+                              INSTALL_DESTINATION ${CBS_CMAKE_CONFIG_FILES_PATH}
+                              PATH_VARS CBS_CMAKE_FILES_PATH)
+write_basic_package_version_file(${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-config-version.cmake
                                  VERSION ${PROJECT_VERSION}
                                  COMPATIBILITY SameMajorVersion)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
-        ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-config.cmake
+        ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-config-version.cmake
         DESTINATION ${CBS_CMAKE_CONFIG_FILES_PATH})
 
 include(${CMAKE_BUILD_SYSTEM_DIR}/Pack.cmake)
